@@ -1,0 +1,21 @@
+{
+  "name": "angular2-quickstart",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Vaadin Ltd"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.6.1",
+    "vaadin-grid": "Vaadin/vaadin-grid#^1.1.1"
+  }
+}

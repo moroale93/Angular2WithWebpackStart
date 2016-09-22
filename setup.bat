@@ -1,0 +1,1 @@
+npm i && bower i & npm run typings install & npm start
