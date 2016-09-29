@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
-//import { Bar } from './model/components/Bar/Bar.component';
-import { SmartTable } from './model/components/SmartTable/SmartTable.component';
+import { SmartTable } from './model/components/smartTable/smartTable.component';
+import { FormPerson } from './model/components/formPerson/formPerson.component';
+import {Person} from './model/data/Person';
 
 @Component({
   selector: 'my-app',
-  template: '<smart-table><smart-table>', //<bar [data]="titolo" (onClick)="logga($event)"></bar>',
-  //directives: [SmartTable]
+  templateUrl: 'app/app.template.html',
+  styleUrls:["app/app.style.css"],
+  providers:[Person]
 })
 
 export class AppComponent {
-    //titolo:string="Hello from my first component!";
-    //logga(arg){
-    //    console.log(arg);
-    //}
+    listOfPeople: Person[]=[];
+
+    constructor(){
+    }
+
+    addNewPersonToTable(p:Person){
+        this.listOfPeople.push(p);
+    }
 }

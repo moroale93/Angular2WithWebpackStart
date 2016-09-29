@@ -1,0 +1,6 @@
+<form>
+    <paper-input label="Name" #name></paper-input>
+    <paper-input label="Surname" #surname></paper-input>
+    <gold-email-input label="Your email address" #email></gold-email-input>
+    <paper-button raised (click)="onSubmitClick(name.value, surname.value, email.value)">Add person</paper-button>
+</form>

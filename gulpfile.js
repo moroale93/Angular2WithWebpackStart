@@ -78,7 +78,7 @@ gulp.task("webpack-dev-server", function(callback) {
       "/A2W*": {
         target: 'http://192.168.2.225:10039',
         secure: false
-      },
+      }
       /* Proxy all requests to /api towards apiary,
        * removing the /api subsequence.
        *

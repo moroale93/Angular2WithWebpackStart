@@ -1,68 +1,19 @@
-import {Component, OnInit} from '@angular/core';
-//import {HTTP_PROVIDERS, Http, Response} from '@angular/http';
+import {Component, Input} from '@angular/core';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
-
-import { PolymerElement } from '@vaadin/angular2-polymer';
-
-class Person {
-  firstName: string;
-  lastName: string;
-  email: string;
-}
+import {Person} from './../../data/Person';
 
 @Component({
   selector: 'smart-table',
-  template: `
-    <vaadin-grid [items]="people">
-      <table>
-        <colgroup>
-          <col name="firstName">
-          <col name="lastName">
-          <col name="email">
-        </colgroup>
-      </table>
-    </vaadin-grid>
-  `,
-  //directives: [
-//    PolymerElement('vaadin-grid')
-//  ],
-  //providers: [
-//    HTTP_PROVIDERS
- // ],
-  styles: [`
-    vaadin-grid {
-      height: 300px;
-    }
-  `]
+  templateUrl: 'app/model/components/smartTable/smartTable.template.html',
+  styleUrls: ['app/model/components/smartTable/smartTable.style.css']
 })
-export class SmartTable implements OnInit {
-  people: Person[] = [
-   {
-      "firstName":"Nora",
-      "lastName":"Thompson",
-      "email":"nora.thompson@company.com"
-   },
-   {
-      "firstName":"Mackenzie",
-      "lastName":"Wright",
-      "email":"mackenzie.wright@company.com"
-   }
-];
 
-  constructor () {}//(private http: Http){}
+export class SmartTable{
+    @Input()
+    people: Person[]=[];
 
-  ngOnInit() {
-//    this.getPeople();
-  }
+    constructor () {}
 
-  //getPeople() {
-//    this._getJSON('https://demo.vaadin.com/demo-data/1.0/people')
-//      .subscribe(json => this.people = json.result)
- // }
 
-//  _getJSON(url: string): Observable<any> {
-//    return this.http.get(url)
-//      .map((res: Response) => res.json())
-//  }
 }

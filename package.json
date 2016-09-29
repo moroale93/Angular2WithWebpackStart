@@ -9,8 +9,9 @@
     "tsc:w": "tsc -w",
     "typings": "typings"
   },
-  "license": "ISC",
   "dependencies": {
+  },
+  "devDependencies": {
     "@angular/common": "2.0.0",
     "@angular/compiler": "2.0.0",
     "@angular/core": "2.0.0",
@@ -29,8 +30,6 @@
     "bootstrap": "^3.3.6",
     "bower":"1.7.9",
     "@vaadin/angular2-polymer":"1.0.0-beta5",
-
-
     "async": "^1.5.0",
     "babel-core": "^5.4.0",
     "babel-loader": "^5.3.2",
@@ -70,10 +69,7 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
-
-  },
-  "devDependencies": {
+    "webpack-dev-server": "^1.14.0",
     "concurrently": "^2.2.0",
     "lite-server": "^2.2.2",
     "typescript": "^2.0.2",

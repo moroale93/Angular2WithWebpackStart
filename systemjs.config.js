@@ -24,7 +24,7 @@
       // other libraries
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
-      '@vaadin/angular2-polymer': 'npm:@vaadin/angular2-polymer/src/polymer-element.js',
+      '@vaadin/angular2-polymer': 'npm:@vaadin/angular2-polymer/src/polymer-element.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
