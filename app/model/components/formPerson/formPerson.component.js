@@ -10,15 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 require('rxjs/add/operator/map');
-var Person_1 = require('./../../data/Person');
 var FormPerson = (function () {
     function FormPerson() {
         this.onSubmit = new core_1.EventEmitter();
+        this.dialog = { title: "", message: "" };
     }
-    FormPerson.prototype.onSubmitClick = function (name, surname, email) {
-        var personToPass = new Person_1.Person(name, surname, email);
-        console.log(personToPass.getName());
-        this.onSubmit.emit(personToPass);
+    FormPerson.prototype.onSubmitClick = function (nameField, surnameField, emailField, dialogElement) {
+        if (nameField.validate() & surnameField.validate() & emailField.validate())
+            this.onSubmit.emit({
+                firstName: nameField.value,
+                lastName: surnameField.value,
+                email: emailField.value
+            });
+        else
+            dialogElement.open();
     };
     __decorate([
         core_1.Output(), 

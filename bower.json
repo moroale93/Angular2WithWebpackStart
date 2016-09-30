@@ -19,6 +19,7 @@
     "vaadin-grid": "Vaadin/vaadin-grid#^1.1.1",
     "paper-input": "PolymerElements/paper-input",
     "gold-email-input": "PolymerElements/gold-email-input",
-    "paper-button": "PolymerElements/paper-button"
+    "paper-button": "PolymerElements/paper-button",
+    "paper-dialog": "PolymerElements/paper-dialog"
   }
 }

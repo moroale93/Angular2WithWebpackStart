@@ -10,10 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 require('rxjs/add/operator/map');
+var http_1 = require('@angular/http');
+var config_provider_1 = require('../../../config/config.provider');
+var Person = (function () {
+    function Person() {
+    }
+    return Person;
+}());
 var SmartTable = (function () {
-    function SmartTable() {
+    function SmartTable(http, config) {
+        this.http = http;
+        this.config = config;
         this.people = [];
     }
+    SmartTable.prototype.ngOnInit = function () {
+        var _this = this;
+        var url = this.config.getUrls().listOfPeople;
+        this.http.get(url).map(function (res) { return res.json(); }).subscribe(function (res) { return _this.people = res.results; });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
@@ -22,9 +36,10 @@ var SmartTable = (function () {
         core_1.Component({
             selector: 'smart-table',
             templateUrl: 'app/model/components/smartTable/smartTable.template.html',
-            styleUrls: ['app/model/components/smartTable/smartTable.style.css']
+            styleUrls: ['app/model/components/smartTable/smartTable.style.css'],
+            providers: [config_provider_1.ConfigProvider]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http, config_provider_1.ConfigProvider])
     ], SmartTable);
     return SmartTable;
 }());

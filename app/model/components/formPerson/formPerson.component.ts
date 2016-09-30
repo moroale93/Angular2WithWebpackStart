@@ -2,7 +2,6 @@ import {Component, Output, EventEmitter} from '@angular/core';
 //import {HTTP_PROVIDERS, Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
-import {Person} from './../../data/Person';
 
 @Component({
     selector: 'form-person',
@@ -13,11 +12,18 @@ export class FormPerson{
     @Output()
     onSubmit = new EventEmitter();
 
+    dialog={title:"",message:""};
+
     constructor () {}
 
-    onSubmitClick(name:string, surname:string, email:string){
-        var personToPass=new Person(name, surname, email);
-        console.log(personToPass.getName())
-        this.onSubmit.emit(personToPass);
+    onSubmitClick(nameField, surnameField, emailField, dialogElement){
+        if(nameField.validate() & surnameField.validate() & emailField.validate())
+            this.onSubmit.emit({
+                firstName:nameField.value,
+                lastName:surnameField.value,
+                email:emailField.value
+            });
+        else
+            dialogElement.open();
     }
 }

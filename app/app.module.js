@@ -10,24 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var angular2_polymer_1 = require('@vaadin/angular2-polymer');
 var app_component_1 = require('./app.component');
-var SmartTable_component_1 = require('./model/components/SmartTable/SmartTable.component');
-var FormPerson_component_1 = require('./model/components/FormPerson/FormPerson.component');
+var smartTable_component_1 = require('./model/components/smartTable/smartTable.component');
+var formPerson_component_1 = require('./model/components/formPerson/formPerson.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, http_1.JsonpModule],
             declarations: [
                 app_component_1.AppComponent,
                 angular2_polymer_1.PolymerElement('vaadin-grid'),
                 angular2_polymer_1.PolymerElement('paper-input'),
                 angular2_polymer_1.PolymerElement('gold-email-input'),
                 angular2_polymer_1.PolymerElement('paper-button'),
-                SmartTable_component_1.SmartTable,
-                FormPerson_component_1.FormPerson
+                angular2_polymer_1.PolymerElement('paper-dialog'),
+                smartTable_component_1.SmartTable,
+                formPerson_component_1.FormPerson
             ],
             bootstrap: [app_component_1.AppComponent],
             schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
