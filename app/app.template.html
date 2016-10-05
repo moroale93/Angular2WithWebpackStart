@@ -1,2 +1,3 @@
 <form-person (onSubmit)="addNewPersonToTable($event)"></form-person>
-<smart-table [people]="listOfPeople"><smart-table>
+<smart-table [people]="listOfPeople" (onSelect)="tableRowSelect($event)"></smart-table>
+<router-outlet></router-outlet>

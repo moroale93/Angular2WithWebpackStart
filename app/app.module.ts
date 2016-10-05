@@ -4,12 +4,13 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { PolymerElement } from '@vaadin/angular2-polymer';
 import { AppComponent }   from './app.component';
-import { SmartTable } from './model/components/smartTable/smartTable.component';
-import { FormPerson } from './model/components/formPerson/formPerson.component';
-
+import { SmartTable } from './components/smartTable/smartTable.component';
+import { FormPerson } from './components/formPerson/formPerson.component';
+import { User } from './components/user/user.component';
+import { routing } from './app.routing';
 
 @NgModule({
-  imports: [ BrowserModule, FormsModule, HttpModule, JsonpModule ],
+  imports: [ BrowserModule, FormsModule, HttpModule, JsonpModule, routing ],
   declarations: [
     AppComponent,
     PolymerElement('vaadin-grid'),
@@ -18,7 +19,8 @@ import { FormPerson } from './model/components/formPerson/formPerson.component';
     PolymerElement('paper-button'),
     PolymerElement('paper-dialog'),
     SmartTable,
-    FormPerson
+    FormPerson,
+    User
   ],
   bootstrap:    [ AppComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

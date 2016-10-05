@@ -1,5 +1,9 @@
 {
     "urls":{
         "listOfPeople":"http://private-20f531-ed2016.apiary-mock.com/vts-ed-rest-api/profiles"
+    },
+    "portal":{
+        "home":"http://localhost:3000/html/index.html",
+        "secondPage":"http://localhost:3000/html/secondPage.html"
     }
 }
