@@ -1,6 +1,14 @@
 node_modules/*
 bower_components/*
 typings/*
+app/*.component.js
+app/*.component.js.map
+app/*.module.js
+app/*.module.js.map
+app/*.routing.js
+app/*.routing.js.map
+app/main.js
+app/main.js.map
 app/components/**/*.component.js
 app/components/**/*.component.js.map
 app/providers/**/*.provider.js

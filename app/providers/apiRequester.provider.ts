@@ -15,11 +15,6 @@ export class ApiRequester {
 
     prepareRequest(request) : Observable<any> {
         return this.config.getUrls().flatMap(request);
-        /*flatMap serve per ritornare il risultato della map precedente e deve ritornare una map. Esempio:
-            Rx.Observable.fromPromise(p1())
-                .flatMap(function(p1_result){return p2(p1_result);})
-                .flatMap(function(p2_result){return p3(p2_result);})
-        */
     };
 
     getPeople(): Observable<ListResponse<Person>>{

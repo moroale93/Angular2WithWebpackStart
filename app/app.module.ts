@@ -9,15 +9,19 @@ import { FormPerson } from './components/formPerson/formPerson.component';
 import { User } from './components/user/user.component';
 import { routing } from './app.routing';
 
-@NgModule({
-  imports: [ BrowserModule, FormsModule, HttpModule, JsonpModule, routing ],
-  declarations: [
-    AppComponent,
+const polymerElements=[
     PolymerElement('vaadin-grid'),
     PolymerElement('paper-input'),
     PolymerElement('gold-email-input'),
     PolymerElement('paper-button'),
-    PolymerElement('paper-dialog'),
+    PolymerElement('paper-dialog')
+];
+
+@NgModule({
+  imports: [ BrowserModule, FormsModule, HttpModule, JsonpModule, routing ],
+  declarations: [
+    AppComponent,
+    polymerElements,
     SmartTable,
     FormPerson,
     User

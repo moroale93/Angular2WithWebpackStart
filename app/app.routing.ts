@@ -7,6 +7,7 @@ import { User } from './components/user/user.component';
 const appRoutes: Routes = [
     {
         path: '',
+        pathMatch:'full',
         component: FormPerson
     },{
         path: 'userDetail/:id',
