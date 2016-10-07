@@ -2,12 +2,13 @@ import {Component, Output, EventEmitter} from '@angular/core';
 //import {HTTP_PROVIDERS, Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
-import {ConfigProvider} from '../../config/config.provider';
+import {ConfigProvider} from '../../services/config.service';
 
 @Component({
     selector: 'form-person',
-    templateUrl: 'app/components/formPerson/formPerson.template.html',
-    styleUrls: ['app/components/formPerson/formPerson.style.css']
+    moduleId: module.id,
+    templateUrl: 'formPerson.component.html',
+    styleUrls: ['formPerson.component.css']
 })
 export class FormPerson{
     @Output()
@@ -15,7 +16,7 @@ export class FormPerson{
 
     dialog={title:"",message:""};
 
-    constructor (private config: ConfigProvider) {}
+    constructor () {}
 
     onSubmitClick(nameField, surnameField, emailField, dialogElement){
         if(nameField.validate() & surnameField.validate() & emailField.validate()){
@@ -24,7 +25,9 @@ export class FormPerson{
                 lastName:surnameField.value,
                 email:emailField.value
             });
-            window.location.href=this.config.getPages().secondPage;
+            nameField.value="";
+            surnameField.value="";
+            emailField.value="";//TODO
         }
         else
             dialogElement.open();

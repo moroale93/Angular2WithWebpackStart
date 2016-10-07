@@ -1,7 +1,7 @@
 class PaginationData{
     pageNum:number;
-    pageSize: string;
-    count: string;
+    pageSize: number;
+    count: number;
 }
 
 export interface IListResponse<T> {

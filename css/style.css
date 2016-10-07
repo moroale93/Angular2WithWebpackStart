@@ -1,3 +1,12 @@
 html{
     background: rgba(236,239,241,0.56);
 }
+
+body{
+    font-family: 'Indie Flower', cursive !important;
+    font-weight: bold;
+}
+
+input, select, textarea, button, label, paper-button{
+    font-family:inherit !important;
+}

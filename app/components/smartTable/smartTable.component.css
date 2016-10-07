@@ -1,0 +1,16 @@
+vaadin-grid.x-scope.vaadin-grid-0 {
+    height: 500px;
+    /* overflow: scroll; */
+}
+
+div.pagination{
+    margin: 0 auto;
+    max-width: 200px;
+    top: -5px;
+    position: relative;
+}
+
+div.show-rows{
+    float: right;
+    max-width: 60px;
+}

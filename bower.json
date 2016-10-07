@@ -20,6 +20,10 @@
     "paper-input": "PolymerElements/paper-input",
     "gold-email-input": "PolymerElements/gold-email-input",
     "paper-button": "PolymerElements/paper-button",
-    "paper-dialog": "PolymerElements/paper-dialog"
+    "paper-dialog": "PolymerElements/paper-dialog",
+    "vaadin-icons": "Vaadin/vaadin-icons",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu",
+    "paper-item":"PolymerElements/paper-item",
+    "paper-listbox":"PolymerElements/paper-listbox"
   }
 }

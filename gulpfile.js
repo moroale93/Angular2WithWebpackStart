@@ -61,7 +61,7 @@ gulp.task("webpack-dev-server", function(callback) {
   var myDevConfig = Object.create(webpackConfig);
   myDevConfig.debug = true;
   myDevConfig.entry.A2W.unshift(
-    "webpack-dev-server/client?http://localhost:8080/",
+    "webpack-dev-server/client?http://localhost:8080",
     "webpack/hot/dev-server");
   myDevConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
   // Start a webpack-dev-server
@@ -86,7 +86,7 @@ gulp.task("webpack-dev-server", function(callback) {
        * http://private-bc401d-ed2016.apiary-mock.com/types
        */
     }
-  }).listen(8080, "localhost", function(err) {
+}).listen(8080, "localhost", function(err) {
     if (err) throw new gutil.PluginError("webpack-dev-server", err);
     // Server listening
     gutil.log("[webpack-dev-server]",

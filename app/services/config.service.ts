@@ -11,7 +11,7 @@ class Config{
 
 @Injectable()
 export class ConfigProvider {
-    private configUrl:string = 'app/config/config.json';
+    private configUrl:string = 'app/configs/config.json';
     //private configJSON: Config;
 
     constructor (private http: Http) {
