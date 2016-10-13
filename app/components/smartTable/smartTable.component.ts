@@ -26,6 +26,7 @@ export class SmartTable implements AfterViewInit{
     public sortOrder:string = null;
     public sort:string = null;
     public maxPage:number;
+    public isLoading:boolean=true;
     public table=[
         {
             title : "First Name",
@@ -66,16 +67,18 @@ export class SmartTable implements AfterViewInit{
         this.backend.getPeople(page,this.pageSizes[this.pageSizeIndex],this.sortOrder,this.sort).subscribe(
             (res: ListResponse<Person>) => {
                 this.maxPage=Math.ceil(res.paginationData.count/this.pageSizes[this.pageSizeIndex]);
-                if(this.page==res.paginationData.pageNum)
+                if(this.page==res.paginationData.pageNum){
                     this.people=res.results;
+                }
             },
-            (err) => console.log(err)
+            (err) => {
+                console.log(err)
+            }
         );
     }
 
     getField(obj, path:string){
-        //console.log(this.fieldGetter.getfield(obj, path))
-        return "ciao";
+        return this.fieldGetter.getfield(obj, path);
     }
 
     //EVENTS

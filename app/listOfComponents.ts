@@ -14,6 +14,7 @@ export const listOfComponents=[
     PolymerElement('paper-dropdown-menu'),
     PolymerElement('paper-item'),
     PolymerElement('paper-listbox'),
+    PolymerElement('paper-spinner'),
     SmartTable,
     FormPerson,
     FormRxJs,

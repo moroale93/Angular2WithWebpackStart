@@ -14,3 +14,14 @@ div.show-rows{
     float: right;
     max-width: 60px;
 }
+
+div.pagination a{
+        cursor: pointer;
+}
+
+tbody.loadingBody td.loadingCell{
+    margin: 0 auto;
+    display: block;
+    background: transparent;
+    border: none;
+}

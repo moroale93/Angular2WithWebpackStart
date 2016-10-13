@@ -24,6 +24,7 @@
     "vaadin-icons": "Vaadin/vaadin-icons",
     "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu",
     "paper-item":"PolymerElements/paper-item",
-    "paper-listbox":"PolymerElements/paper-listbox"
+    "paper-listbox":"PolymerElements/paper-listbox",
+    "paper-spinner":"PolymerElements/paper-spinner"
   }
 }
