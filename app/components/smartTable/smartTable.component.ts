@@ -16,10 +16,12 @@ import { ListResponse } from '../../models/listResponse';
 
 export class SmartTable implements AfterViewInit{
     @ViewChild('grid') gridSel: ElementRef;
+    @ViewChild('loadingSpinner') loadingSpinnerSel: ElementRef;
     @Input() people: Person[]=[];
     @Output() onSelect = new EventEmitter();
 
     public grid;
+    public loadingSpinner;
     public page:number = 1;
     public pageSizes:number[] = [10,25,50,100];
     public pageSizeIndex:number = 1;
@@ -40,14 +42,14 @@ export class SmartTable implements AfterViewInit{
             path : "lastName",
             sorting : {
                 sortCode:"lname",
-                sortable:true
+                sortable:false
             }
         },{
             title : "Email",
             path : "email",
             sorting : {
-                sortCode:"",
-                sortable:false
+                sortCode:"email",
+                sortable:true
             }
         }
     ];
@@ -55,11 +57,15 @@ export class SmartTable implements AfterViewInit{
     constructor (private backend: ApiRequester, private fieldGetter: ObjFieldsProvider) {}
 
     ngAfterViewInit() {
-        this.grid = this.gridSel.nativeElement;
+        this.gridSel.nativeElement.then(() => {
+            this.onGridReady(this.gridSel.nativeElement);
+        });
+        this.loadingSpinner = this.loadingSpinnerSel.nativeElement;
         this.updateTable(this.page, this.pageSizeIndex, this.sortOrder, this.sort);
     }
 
     updateTable(page,pageSizeIndex,sortOrder,sort){
+        this.loadingSpinner.setAttribute("class","paper-spinner-lite shown-spinner")
         this.page = page;
         this.pageSizeIndex = pageSizeIndex;
         this.sortOrder = sortOrder;
@@ -69,10 +75,11 @@ export class SmartTable implements AfterViewInit{
                 this.maxPage=Math.ceil(res.paginationData.count/this.pageSizes[this.pageSizeIndex]);
                 if(this.page==res.paginationData.pageNum){
                     this.people=res.results;
+                    this.loadingSpinner.setAttribute("class","paper-spinner-lite hidden-spinner");
                 }
             },
             (err) => {
-                console.log(err)
+                this.loadingSpinner.setAttribute("class","paper-spinner-lite hidden-spinner");
             }
         );
     }
@@ -81,35 +88,48 @@ export class SmartTable implements AfterViewInit{
         return this.fieldGetter.getfield(obj, path);
     }
 
+    onGridReady(gridReady){
+        this.grid=gridReady;
+
+        for(let i = 0 ; i < this.table.length; i++)
+            this.grid.columns[i].sortable=this.table[i].sorting.sortable;
+
+        this.grid.addEventListener('sort-order-changed', (e: any) => {
+            this.onSortingItems(e);
+        });
+
+        this.grid.addEventListener('selected-items-changed', (e: any) => {
+            this.onSelectItems(e);
+        });
+    }
+
     //EVENTS
-    onSelectedItemsChanged(event: any) {
+    onSelectItems(event: any) {
         let selectedIndex: number = event.target.selection.selected()[0];
-        if (selectedIndex !== undefined) {
-            console.log(event)
-            this.onSelect.emit(this.grid.items[selectedIndex]);
-        }
+        if (selectedIndex !== undefined)
+            this.onSelect.emit(this.people[selectedIndex]);
     }
 
-    onChangeSortOrder(sortEvent){
+    onSortingItems(sortEvent){
          sortEvent.preventDefault();
-         console.log(sortEvent)
-         console.log('column n° ' + this.grid.sortOrder[0].column);
-         console.log('direction: ' + this.grid.sortOrder[0].direction);
+         let newSortCode=this.table[this.grid.sortOrder[0].column].sorting.sortCode;
+         let newSortOrder= this.grid.sortOrder[0].direction;
+         this.updateTable(1, this.pageSizeIndex, newSortOrder, newSortCode);
     }
 
-    onDoubleLeftClick(pageInput){
+    onPaginationDoubleLeft(pageInput){
         this.onInsertPage(pageInput, 1);
     }
 
-    onLeftClick(pageInput){
+    onPaginationLeft(pageInput){
         this.onInsertPage(pageInput, this.page-1);
     }
 
-    onRightClick(pageInput){
+    onPaginationRight(pageInput){
         this.onInsertPage(pageInput, this.page+1);
     }
 
-    onDoubleRightClick(pageInput){
+    onPaginationDoubleRight(pageInput){
         this.onInsertPage(pageInput, this.maxPage);
     }
 

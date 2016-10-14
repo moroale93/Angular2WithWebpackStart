@@ -16,7 +16,7 @@ div.show-rows{
 }
 
 div.pagination a{
-        cursor: pointer;
+    cursor: pointer;
 }
 
 tbody.loadingBody td.loadingCell{
@@ -24,4 +24,23 @@ tbody.loadingBody td.loadingCell{
     display: block;
     background: transparent;
     border: none;
+}
+
+div.smart-table-container{
+    position: relative;
+}
+
+div.paper-spinner-lite{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+}
+
+div.paper-spinner-lite.hidden-spinner{
+    display: none;
 }

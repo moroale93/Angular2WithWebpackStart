@@ -19,7 +19,7 @@ export class ApiRequester {
 
     getPeople(page:number, pageSize:number, sortOrder:string, sort:string): Observable<ListResponse<Person>>{
         return this.prepareRequest((urls) => {
-            return this.http.get(urls.listOfPeople+"?searchQuery={'lname':'','revisionstrict':true,'revision':1443,'wewfwefwf':true}&page=" + page + "&pageSize=" +pageSize + (sort!=null?"&sort=" + sort:"") + (sortOrder!=null?"&sortOrder=" + sortOrder:""))
+            return this.http.get(urls.listOfPeople+"?searchQuery={'lname':'','revisionstrict':true,'revision':3,'wewfwefwf':true}&page=" + page + "&pageSize=" +pageSize + (sort!=null?"&sort=" + sort:"") + (sortOrder!=null?"&sortOrder=" + sortOrder:""))
                 .map((res: Response)=>{return res.json();});
         });
     }
