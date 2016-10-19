@@ -75,7 +75,7 @@ gulp.task("webpack-dev-server", function(callback) {
       colors: true
     },
     proxy: {
-      "/A2W*": {
+      "/vts-ed-rest-api/*": {
         target: 'http://192.168.2.225:10039',
         secure: false
       }

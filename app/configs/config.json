@@ -1,7 +1,7 @@
 {
     "urls":{
-        "listOfPeople":"http://192.168.2.225:10039/vts-ed-rest-api/profiles",
-        "person":"http://192.168.2.225:10039/vts-ed-rest-api/profiles/$PERSONID"
+        "listOfPeople":"/vts-ed-rest-api/profiles",
+        "person":"/vts-ed-rest-api/profiles/$PERSONID"
     },
     "portal":{
         "home":"http://localhost:3000"
